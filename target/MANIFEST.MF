@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: TenderApplication
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: za.ac.cput.TenderApplication
+Build-Jdk: 1.7.0_75
+Built-By: student
+Created-By: IntelliJ IDEA
+Main-Class: ${start-class}
+

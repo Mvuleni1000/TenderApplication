@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - myTender@localhost" uuid="3882f978-baf1-46cc-b133-805a14c84312">
+    <database-info product="MySQL" version="5.6.19-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="myTender"/>
+    <table name="company" schema="" catalog="myTender" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taxclarance" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_no" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_jxsy4uwcxxw3990jxyk35cjih" columns="company_no" ref-table="users" ref-schema="" ref-catalog="myTender" ref-columns="userid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_56bieoipsjslt97g0m685gq03" table="manager" schema="" catalog="myTender" columns="mangerid"/>
+      <index name="FK_jxsy4uwcxxw3990jxyk35cjih" unique="false" columns="company_no"/>
+    </table>
+    <table name="contracts" schema="" catalog="myTender" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="dep_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="documents" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contract_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_sa802ncblo82rgmhixypiu2a0" columns="contract_id" ref-table="department" ref-schema="" ref-catalog="myTender" ref-columns="department_no" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_sa802ncblo82rgmhixypiu2a0" unique="false" columns="contract_id"/>
+    </table>
+    <table name="department" schema="" catalog="myTender" type="TABLE">
+      <column name="department_no" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="founder" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="projects" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dep_no" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="department_no"/>
+      <foreign-key name="FK_iwb5vx79475uxw7eoq54hc5o" columns="dep_no" ref-table="office" ref-schema="" ref-catalog="myTender" ref-columns="admin_no" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_sa802ncblo82rgmhixypiu2a0" table="contracts" schema="" catalog="myTender" columns="contract_id"/>
+      <index name="FK_iwb5vx79475uxw7eoq54hc5o" unique="false" columns="dep_no"/>
+    </table>
+    <table name="employees" schema="" catalog="myTender" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="zipcode" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="contact_details" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="firstname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="emp_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_qk7v3wpgrpay1imj86bbimgcl" columns="emp_id" ref-table="tender_head_office" ref-schema="" ref-catalog="myTender" ref-columns="tender_head_office" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_qk7v3wpgrpay1imj86bbimgcl" unique="false" columns="emp_id"/>
+    </table>
+    <table name="hrdepartment" schema="" catalog="myTender" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="building" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contactdeatails" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="human_resoure_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_3th96fkeot5gipjgbput5n4bm" columns="human_resoure_id" ref-table="office" ref-schema="" ref-catalog="myTender" ref-columns="admin_no" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_3th96fkeot5gipjgbput5n4bm" unique="false" columns="human_resoure_id"/>
+    </table>
+    <table name="manager" schema="" catalog="myTender" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mangerid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_56bieoipsjslt97g0m685gq03" columns="mangerid" ref-table="company" ref-schema="" ref-catalog="myTender" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_56bieoipsjslt97g0m685gq03" unique="false" columns="mangerid"/>
+    </table>
+    <table name="office" schema="" catalog="myTender" type="TABLE">
+      <column name="admin_no" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="document" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="station_no" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="office_no" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="admin_no"/>
+      <foreign-key name="FK_rkpjvhokescjfiwej5msocyoe" columns="office_no" ref-table="tender_head_office" ref-schema="" ref-catalog="myTender" ref-columns="tender_head_office" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_iwb5vx79475uxw7eoq54hc5o" table="department" schema="" catalog="myTender" columns="dep_no"/>
+      <exported-key name="FK_3th96fkeot5gipjgbput5n4bm" table="hrdepartment" schema="" catalog="myTender" columns="human_resoure_id"/>
+      <index name="FK_rkpjvhokescjfiwej5msocyoe" unique="false" columns="office_no"/>
+    </table>
+    <table name="tender_head_office" schema="" catalog="myTender" type="TABLE">
+      <column name="tender_head_office" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="zipcode" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="office_reg" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="tender_head_office"/>
+      <exported-key name="FK_qk7v3wpgrpay1imj86bbimgcl" table="employees" schema="" catalog="myTender" columns="emp_id"/>
+      <exported-key name="FK_rkpjvhokescjfiwej5msocyoe" table="office" schema="" catalog="myTender" columns="office_no"/>
+      <exported-key name="FK_a2p5s9khgxx2i9djnmpirhcy2" table="users" schema="" catalog="myTender" columns="user_admin_id"/>
+    </table>
+    <table name="users" schema="" catalog="myTender" type="TABLE">
+      <column name="userid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="account" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="zipcode" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="contact_details" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_admin_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="userid"/>
+      <foreign-key name="FK_a2p5s9khgxx2i9djnmpirhcy2" columns="user_admin_id" ref-table="tender_head_office" ref-schema="" ref-catalog="myTender" ref-columns="tender_head_office" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_jxsy4uwcxxw3990jxyk35cjih" table="company" schema="" catalog="myTender" columns="company_no"/>
+      <index name="FK_a2p5s9khgxx2i9djnmpirhcy2" unique="false" columns="user_admin_id"/>
+    </table>
+  </data-source>
+</component>
