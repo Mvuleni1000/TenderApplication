@@ -69,7 +69,7 @@ public class HRDepartment implements Serializable{
         }
 
         public Builder copy(HRDepartment value) {
-            this.id = value.id;
+            this.id = value.getHrNo();
             this.contactdeatails = value.contactdeatails;
             this.building = value.building;
             return this;

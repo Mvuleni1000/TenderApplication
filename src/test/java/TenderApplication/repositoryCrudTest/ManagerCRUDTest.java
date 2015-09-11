@@ -26,16 +26,17 @@ public class ManagerCRUDTest extends AbstractTestNGSpringContextTests {
     @Test
     public void create() throws Exception {
 
-        Manager manager = ManagerFactory.createManger("Mvuleni");
+        Manager manager = ManagerFactory.createManger("mvuleni");
         repo.save(manager);
         id = manager.getManagerID();
         Assert.assertNotNull(id);
     }
 
     @Test(dependsOnMethods = "create")
-    public void read() throws Exception {
+     public void read() throws Exception {
 
         Manager manager = (Manager)this.repo.findOne(this.id);
+        //id = manager.getManagerID();
         Assert.assertNotNull(id);
         Assert.assertEquals(null, manager.getSurname());
     }

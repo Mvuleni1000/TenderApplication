@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by student on 2015/08/12.
+ * Created by Mnisi 072 0375936 on 2015/08/12.
  */
 
 @SpringApplicationConfiguration(classes = TenderApplication.class)

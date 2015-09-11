@@ -22,7 +22,7 @@ public class Employees implements Serializable{
     private Address building_address;
 
 
-    public long getEmployeeID() {
+    public Long getEmployeeID() {
         return id;
     }
 
@@ -91,6 +91,12 @@ public class Employees implements Serializable{
         {
             this.contactDetails = contactDetails;
             return  this;
+        }
+
+        public Builder getID (Long idNumber)
+        {
+            this.id=id;
+            return this;
         }
 
         public Builder copy(Employees value) {

@@ -14,6 +14,6 @@ public class HomePage
     @RequestMapping(value = "home", method = RequestMethod.GET)
     public String index()
     {
-        return "This is Home Page.";
+        return "**WELCOME TO THE TENDER DEPARTMENT SYSTEM**";
     }
 }

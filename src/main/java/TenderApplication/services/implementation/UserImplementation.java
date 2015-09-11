@@ -24,6 +24,33 @@ public class UserImplementation implements UserSerivce {
 
 
     @Override
+    public Users findById(Long id) {
+        return userRepo.findOne(id);
+    }
+
+    @Override
+    public Users save(Users entity) {
+        return userRepo.save(entity);
+    }
+
+    @Override
+    public Users update(Users entity) {
+        return userRepo.save(entity);
+    }
+
+    @Override
+    public void delete(Users entity) {
+        userRepo.delete(entity);
+
+    }
+
+    @Override
+    public List<Users> findAll() {
+        return null;
+    }
+
+
+    @Override
     public List<Users> getUsers() {
         List<Users> userRegistered = new ArrayList<Users>();
 

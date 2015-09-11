@@ -33,7 +33,7 @@ public class CompanyCRUDTest extends AbstractTestNGSpringContextTests {
     public void create() throws Exception
     {
         List<Manager> managers = new ArrayList<Manager>();
-        Company company = CompanyFactory.createCompany("tradings", "1241245125", managers);
+        Company company = CompanyFactory.createCompany("workshop", "1241245125", managers);
 
         repo.save(company);
         id = company.getCompanyNo();

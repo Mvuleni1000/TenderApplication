@@ -17,6 +17,8 @@ public class Manager implements Serializable {
     private Long id;
     private String surname;
 
+
+
     public Manager() {
     }
 

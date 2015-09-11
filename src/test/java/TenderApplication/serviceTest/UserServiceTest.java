@@ -20,6 +20,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import javax.security.auth.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,12 +51,12 @@ public class UserServiceTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void create() throws Exception {
-        Address address = AddressFactory.createAdress(3142, 1421, "Malelane", "Nelspruit");
-        Manager manager1 = ManagerFactory.createManger("Mnisi Sibusiso");
+        Address address = AddressFactory.createAdress(3142, 1421, "Likazi", "Lowveld");
+        Manager manager1 = ManagerFactory.createManger("Mhlanga Bongani");
 
         manager.add(manager1);
 
-        Company company1 =CompanyFactory.createCompany("Sibusiso","dfgdfg",manager);
+        Company company1 =CompanyFactory.createCompany("Bongumusa","Mnisi",manager);
         Company company2 =CompanyFactory.createCompany("Mnisi","Constraction",manager);
 
         addCompanies.add(company1);
@@ -68,12 +69,44 @@ public class UserServiceTest extends AbstractTestNGSpringContextTests {
 
     }
 
+
+    @Test(dependsOnMethods = "create")
+    public void read()throws Exception
+    {
+        Users users = serivce.findById(id);
+        Assert.assertEquals("0745333355", users.getContactDetails());
+
+    }
+
+    @Test(dependsOnMethods = "read")
+    public void update() throws Exception
+    {
+        Users users= serivce.findById(id);
+        Users newUser = new Users
+                .Builder("012 542 3652")
+                .account("12")
+                .address(users.getBuilding_address())
+                .company(users.getCompany())
+                .copy(users)
+                .build();
+
+        serivce.update(newUser);
+        Users updatedUser = serivce.findById(id);
+        Assert.assertEquals("0745333355",updatedUser.getContactDetails());
+    }
+
+    @Test(dependsOnMethods = "update")
+    public void delete() throws Exception {
+        Users users = serivce.findById(id);
+        serivce.delete(users);
+        Users deletedUser = serivce.findById(id);
+        Assert.assertNull(deletedUser);
+    }
+
+
     @Test
     public void testCompanyRegistered() throws Exception {
-
         List<Company> addCompanies = serivce.getUserCompany(id);
-
-
         Assert.assertTrue(addCompanies.size() == 2);
     }
 
