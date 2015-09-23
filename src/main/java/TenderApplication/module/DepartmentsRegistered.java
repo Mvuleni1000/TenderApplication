@@ -1,29 +1,22 @@
-package TenderApplication.Domain;
+package TenderApplication.module;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import TenderApplication.Domain.Contracts;
+import org.springframework.hateoas.ResourceSupport;
+
 import java.util.List;
 
 /**
- * Created by student on 2015/08/06.
+ * Created by student on 2015/09/17.
  */
-@Entity
-public class Department implements Serializable {
+public class DepartmentsRegistered extends ResourceSupport {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentNo;
     private String projects;
     private String founder;
-
-
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "Contract_ID")
     private List<Contracts> contractID;
 
-    public Department() {
+    public DepartmentsRegistered() {
     }
 
     public Long getDepartmentNo() {
@@ -41,7 +34,7 @@ public class Department implements Serializable {
         return founder;
     }
 
-    public Department (Builder pro)
+    public DepartmentsRegistered (Builder pro)
     {
         this.departmentNo = pro.departmentNo;
         this.projects = pro.projects;
@@ -85,7 +78,7 @@ public class Department implements Serializable {
             return this;
         }
 
-        public Builder copy(Department pro) {
+        public Builder copy(DepartmentsRegistered pro) {
             this.departmentNo = pro.getDepartmentNo();
             this.projects = pro.getProjects();
             this.contractID = pro.getContractID();
@@ -93,9 +86,10 @@ public class Department implements Serializable {
             return this;
         }
 
-        public Department build() {
-            return new Department(this);
+        public DepartmentsRegistered build() {
+            return new DepartmentsRegistered(this);
         }
     }
+
 
 }

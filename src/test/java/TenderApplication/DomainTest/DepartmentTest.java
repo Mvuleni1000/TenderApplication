@@ -3,10 +3,7 @@ package TenderApplication.DomainTest;
 import TenderApplication.Domain.Contracts;
 import TenderApplication.Domain.Department;
 import TenderApplication.config.factory.DepartmentFactory;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +13,13 @@ import java.util.List;
  */
 public class DepartmentTest {
 
-    @Before
+    //@Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void create() throws Exception {
 
         List<Contracts> contractses = new ArrayList<Contracts>();
@@ -33,7 +30,7 @@ public class DepartmentTest {
         Assert.assertEquals("Mhlongo", d.getFounder());
     }
 
-    @Test
+   // @Test
     public void testUpdate() throws Exception {
 
         List<Contracts>departments = new ArrayList<Contracts>();
@@ -43,7 +40,7 @@ public class DepartmentTest {
         Assert.assertEquals("Mvuleni", d.getFounder());
     }
 
-    @After
+    //@After
     public void tearDown() throws Exception {
 
 

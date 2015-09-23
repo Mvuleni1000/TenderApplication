@@ -74,7 +74,7 @@ public class UserRegistratioPage {
     //-------------------Create a Subject--------------------------------------------------------
 
     @RequestMapping(value = "/user/create", method = RequestMethod.POST)
-    public ResponseEntity<Void> createSubject(@RequestBody Users users,    UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<Void> createSubject(@RequestBody Users users, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating user " + users.getAccount());
 
 //     USE THIS IF YOU WANT TO CHECK UNIQUE OBJECT

@@ -4,10 +4,7 @@ import TenderApplication.Domain.Address;
 import TenderApplication.Domain.Employees;
 import TenderApplication.config.factory.AddressFactory;
 import TenderApplication.config.factory.EmployeesFactory;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Created by student on 2015/08/06.
@@ -15,13 +12,13 @@ import org.junit.Test;
 public class EmployeesTest {
 
 
-    @Before
+    //@Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testName() throws Exception {
 
         Address address = AddressFactory.createAdress(554, 2151, "Dorset", "woodstock");
@@ -32,7 +29,7 @@ public class EmployeesTest {
         Assert.assertEquals("Mnisi", employees.getLastname());
     }
 
-    @Test
+    //@Test
     public void testUpdate() throws Exception {
 
         Address address = AddressFactory.createAdress(554, 2151, "Dorset", "woodstock");
@@ -43,7 +40,7 @@ public class EmployeesTest {
         Assert.assertEquals("Mvuleni", employees.getLastname());
     }
 
-    @After
+    //@After
     public void tearDown() throws Exception {
 
 
